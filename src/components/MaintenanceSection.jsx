@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { MessageCircle, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { WHATSAPP_NUMBER } from '../config';
 
 export default function MaintenanceSection() {
@@ -102,7 +103,7 @@ export default function MaintenanceSection() {
 
           <div className="reveal" style={{ display: 'flex', justifyContent: 'center' }}>
             <button onClick={openWhatsApp} className="btn-whatsapp">
-              <MessageCircle size={20} fill="currentColor" color="#25D366" />
+              <FaWhatsapp size={20} fill="currentColor" color="#25D366" />
               CONTINUE SHOPPING ON WHATSAPP
             </button>
           </div>

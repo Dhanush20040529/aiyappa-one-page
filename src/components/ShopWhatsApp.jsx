@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { MessageCircle, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { WHATSAPP_NUMBER } from '../config';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function ShopWhatsApp() {
   const sectionRef = useRef(null);
@@ -121,7 +122,7 @@ export default function ShopWhatsApp() {
               className="btn-whatsapp"
               style={{ padding: '20px 44px', fontSize: '0.95rem' }}
             >
-              <MessageCircle size={22} fill="currentColor" color="#25D366" />
+              <FaWhatsapp size={22} fill="currentColor" color="#25D366" />
               CHAT WITH AIYAPPA TEXTILES
             </button>
           </div>

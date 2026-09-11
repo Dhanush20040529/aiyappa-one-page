@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MessageCircle, ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowDown, Sparkles } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { WHATSAPP_NUMBER } from '../config';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -471,7 +472,7 @@ export default function HeroStory({ preloadedImages }) {
               }}
             >
               <button onClick={openWhatsAppEnquiry} className="btn-whatsapp">
-                <MessageCircle size={20} fill="currentColor" color="#25D366" />
+                <FaWhatsapp size={20} fill="currentColor" color="#25D366" />
                 <span>ENQUIRE ON WHATSAPP</span>
               </button>
 

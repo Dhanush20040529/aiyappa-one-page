@@ -1,5 +1,6 @@
 import React from 'react';
-import { MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { WHATSAPP_NUMBER, STORE_INFO } from '../config';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
@@ -69,8 +70,10 @@ export default function Footer({ onSelectCategory }) {
             </p>
             <div style={{ display: 'flex', gap: '14px' }}>
               <a
-                href="#"
+                href="https://www.instagram.com/aiyappatextiles/"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   width: '38px',
                   height: '38px',
@@ -89,8 +92,10 @@ export default function Footer({ onSelectCategory }) {
                 <FaInstagram />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/aiyappatextileskaraikudi"
                 aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   width: '38px',
                   height: '38px',
@@ -108,26 +113,29 @@ export default function Footer({ onSelectCategory }) {
               >
                 <FaFacebookF />
               </a>
-              <button
-                onClick={openWhatsApp}
-                aria-label="WhatsApp"
+              <a
+                href="https://www.youtube.com/@aiyappastore4830"
+                aria-label="Youtube"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   width: '38px',
                   height: '38px',
                   borderRadius: '50%',
-                  backgroundColor: 'rgba(37, 211, 102, 0.12)',
-                  border: '1px solid rgba(37, 211, 102, 0.25)',
+                  backgroundColor: 'rgba(246, 240, 231, 0.08)',
+                  border: '1px solid rgba(246, 240, 231, 0.12)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#25D366',
-                  cursor: 'pointer',
+                  color: 'rgba(246, 240, 231, 0.7)',
+                  textDecoration: 'none',
                   transition: 'all 0.3s ease'
                 }}
                 className="footer-icon-btn"
               >
-                <MessageCircle size={17} />
-              </button>
+                <FaYoutube />
+              </a>
+
             </div>
           </div>
 
@@ -147,9 +155,9 @@ export default function Footer({ onSelectCategory }) {
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {[
-                { label: 'Men\'s Collection', cat: 'men' },
-                { label: 'Women\'s Collection', cat: 'women' },
-                { label: 'Kids\' Collection', cat: 'kids' },
+                { label: "Women's Collection", cat: 'women' },
+                { label: "Men's Collection", cat: 'men' },
+                { label: 'General Collection', cat: 'general' },
                 { label: 'All Products', cat: 'all' }
               ].map(item => (
                 <li key={item.cat}>
@@ -190,11 +198,9 @@ export default function Footer({ onSelectCategory }) {
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {[
-                { label: 'Showroom', href: '#hero' },
                 { label: 'Collections', href: '#collections' },
                 { label: 'Products', href: '#products' },
                 { label: 'WhatsApp', href: '#' },
-                { label: 'Contact Us', href: '#' }
               ].map(item => (
                 <li key={item.label}>
                   <a

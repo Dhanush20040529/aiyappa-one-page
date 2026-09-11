@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { WHATSAPP_NUMBER } from '../config';
 
 export default function WhatsAppButton() {
@@ -33,7 +33,7 @@ export default function WhatsAppButton() {
         }}
       />
 
-      <MessageCircle size={26} fill="currentColor" />
+      <FaWhatsapp size={26} fill="currentColor" />
 
       {/* Tooltip */}
       <span

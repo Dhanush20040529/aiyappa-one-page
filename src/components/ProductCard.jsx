@@ -78,7 +78,7 @@ export default function ProductCard({ product, delay = 0, onOpenModal, visible }
             marginBottom: '5px'
           }}
         >
-          {product.category.toUpperCase()} · {product.type}
+          {(product.collectionLabel || product.collection || '').toUpperCase()} · {product.subcategoryLabel || product.subcategory || ''}
         </span>
 
         {/* Name */}

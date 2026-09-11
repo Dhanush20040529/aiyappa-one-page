@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MessageCircle, ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowDown, Sparkles } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import HeroSequence from './HeroSequence';
 import { WHATSAPP_NUMBER } from '../config';
 
@@ -17,6 +18,7 @@ const SCENES = [
     headingAccent: 'Handwoven Silk',
     desc: 'Crafted for generations. Step into a cinematic journey through timeless Indian textiles.',
     range: [0.0, 0.20],
+    position: 'top-left',
     cta: false
   },
   {
@@ -26,6 +28,7 @@ const SCENES = [
     headingAccent: 'Sacred Tradition',
     desc: 'From rich Kanchipuram borders to delicate zari threads, every weave tells a story of timeless grace.',
     range: [0.20, 0.42],
+    position: 'bottom-right',
     cta: false
   },
   {
@@ -35,6 +38,7 @@ const SCENES = [
     headingAccent: 'Embroidered Detail',
     desc: 'Feel the exquisite drape of authentic pure silk, meticulous craftsmanship, and gold zari embroidery.',
     range: [0.42, 0.65],
+    position: 'bottom-left',
     cta: false
   },
   {
@@ -44,6 +48,7 @@ const SCENES = [
     headingAccent: 'Collections',
     desc: 'Designed to bring elegance to grand celebrations, weddings, and life’s most cherished moments.',
     range: [0.65, 0.85],
+    position: 'top-right',
     cta: false
   },
   {
@@ -53,6 +58,7 @@ const SCENES = [
     headingAccent: 'Begins Here',
     desc: 'Discover our exclusive collections or connect directly with our showroom experts on WhatsApp.',
     range: [0.85, 1.0],
+    position: 'bottom-center',
     cta: true
   }
 ];
@@ -219,7 +225,7 @@ export default function CinematicSection({ preloadedImages }) {
             {SCENES.map((scene, i) => (
               <div
                 key={scene.key}
-                className="story-overlay-block"
+                className={`story-overlay-block pos-${scene.position}`}
                 ref={(el) => { blockRefs.current[i] = el; }}
               >
                 <div className="story-eyebrow-tag">
@@ -238,7 +244,7 @@ export default function CinematicSection({ preloadedImages }) {
                 {scene.cta && (
                   <div className="story-cta">
                     <button onClick={openWhatsApp} className="btn-whatsapp hero-cta-btn">
-                      <MessageCircle size={18} fill="currentColor" color="#25D366" />
+                      <FaWhatsapp size={18} fill="currentColor" color="#25D366" />
                       ENQUIRE ON WHATSAPP
                     </button>
                     <a
@@ -262,6 +268,6 @@ export default function CinematicSection({ preloadedImages }) {
           <ArrowDown size={14} />
         </div>
       </div>
-    </section>
+    </section >
   );
 }

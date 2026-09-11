@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { WHATSAPP_NUMBER } from '../config';
 
 export default function Navbar() {
@@ -35,7 +36,8 @@ export default function Navbar() {
           padding: scrolled ? '14px 36px' : '22px 48px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'space-around',
+          gap: "3rem",
           transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
           backgroundColor: scrolled ? 'rgba(246, 240, 231, 0.92)' : 'rgba(26, 20, 16, 0.25)',
           backdropFilter: scrolled ? 'blur(18px)' : 'blur(8px)',
@@ -75,18 +77,7 @@ export default function Navbar() {
             gap: '36px'
           }}
         >
-          <a
-            href="#hero"
-            className={`nav-link ${scrolled ? 'nav-link-scrolled' : 'nav-link-hero'}`}
-          >
-            Showroom
-          </a>
-          <a
-            href="#cinematic"
-            className={`nav-link ${scrolled ? 'nav-link-scrolled' : 'nav-link-hero'}`}
-          >
-            Our Story
-          </a>
+
           <a
             href="#collections"
             className={`nav-link ${scrolled ? 'nav-link-scrolled' : 'nav-link-hero'}`}
@@ -121,7 +112,7 @@ export default function Navbar() {
             }}
             className="hover-lift"
           >
-            <MessageCircle size={15} fill="currentColor" color="#25D366" />
+            <FaWhatsapp size={17} fill="currentColor" color="#25D366" />
             <span>WhatsApp Shop</span>
           </button>
         </nav>
@@ -162,20 +153,7 @@ export default function Navbar() {
             padding: '24px'
           }}
         >
-          <a
-            href="#hero"
-            onClick={() => setMobileMenuOpen(false)}
-            style={{ fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#30261F', textDecoration: 'none' }}
-          >
-            Showroom
-          </a>
-          <a
-            href="#cinematic"
-            onClick={() => setMobileMenuOpen(false)}
-            style={{ fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#30261F', textDecoration: 'none' }}
-          >
-            Our Story
-          </a>
+
           <a
             href="#collections"
             onClick={() => setMobileMenuOpen(false)}
@@ -206,7 +184,7 @@ export default function Navbar() {
             className="btn-whatsapp"
             style={{ marginTop: '16px' }}
           >
-            <MessageCircle size={18} fill="currentColor" color="#25D366" />
+            <FaWhatsapp size={18} fill="currentColor" color="#25D366" />
             <span>CHAT ON WHATSAPP</span>
           </button>
         </div>

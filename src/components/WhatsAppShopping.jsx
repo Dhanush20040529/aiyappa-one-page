@@ -1,6 +1,7 @@
 import React from 'react';
-import { MessageCircle, Video, ShieldCheck, Truck, Sparkles } from 'lucide-react';
+import { Video, ShieldCheck, Truck, Sparkles } from 'lucide-react';
 import { WHATSAPP_NUMBER } from '../config';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function WhatsAppShopping() {
   const openWhatsApp = () => {
@@ -105,7 +106,7 @@ export default function WhatsAppShopping() {
             }}
           >
             <button onClick={openWhatsApp} className="btn-whatsapp" style={{ padding: '18px 36px', fontSize: '1rem' }}>
-              <MessageCircle size={22} fill="currentColor" color="#25D366" />
+              <FaWhatsapp size={22} fill="currentColor" color="#25D366" />
               <span>CHAT WITH US ON WHATSAPP</span>
             </button>
 

@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { MessageCircle, ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowDown, Sparkles } from 'lucide-react';
 import { WHATSAPP_NUMBER } from '../config';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -46,138 +47,167 @@ export default function Hero() {
         padding: '140px 24px 90px',
         position: 'relative',
         overflow: 'hidden',
-        background: 'linear-gradient(160deg, #FBF7EF 0%, #F6EEDD 45%, #EDDCC0 100%)',
+        background: '#F3E8D3',
       }}
     >
-      {/* Animated drifting glow orbs */}
+      <style>{`
+    @keyframes meshMove1 {
+      0%, 100% { transform: translate(0%, 0%) rotate(0deg) scale(1); }
+      33% { transform: translate(8%, -6%) rotate(8deg) scale(1.15); }
+      66% { transform: translate(-6%, 8%) rotate(-6deg) scale(1.05); }
+    }
+    @keyframes meshMove2 {
+      0%, 100% { transform: translate(0%, 0%) rotate(0deg) scale(1); }
+      50% { transform: translate(-10%, -8%) rotate(-10deg) scale(1.2); }
+    }
+    @keyframes meshMove3 {
+      0%, 100% { transform: translate(0%, 0%) scale(1); }
+      50% { transform: translate(6%, 10%) scale(1.12); }
+    }
+    @keyframes weaveShift {
+      0% { background-position: 0 0; }
+      100% { background-position: 80px 80px; }
+    }
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+  `}</style>
+
+      {/* Layer 1: Animated mesh-gradient color blobs */}
       <div
         style={{
           position: 'absolute',
-          top: '-10%',
-          left: '-5%',
-          width: '55%',
-          height: '70%',
+          top: '-20%',
+          left: '-10%',
+          width: '70%',
+          height: '80%',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(176,138,74,0.22) 0%, transparent 65%)',
-          filter: 'blur(40px)',
-          animation: 'drift1 18s ease-in-out infinite',
+          background: 'radial-gradient(circle, rgba(176,138,74,0.45) 0%, rgba(176,138,74,0) 70%)',
+          filter: 'blur(60px)',
+          animation: 'meshMove1 20s ease-in-out infinite',
           pointerEvents: 'none',
         }}
       />
       <div
         style={{
           position: 'absolute',
-          bottom: '-15%',
-          right: '-8%',
-          width: '60%',
-          height: '75%',
+          bottom: '-25%',
+          right: '-15%',
+          width: '75%',
+          height: '85%',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(31,90,58,0.18) 0%, transparent 65%)',
-          filter: 'blur(50px)',
-          animation: 'drift2 22s ease-in-out infinite',
+          background: 'radial-gradient(circle, rgba(31,90,58,0.35) 0%, rgba(31,90,58,0) 70%)',
+          filter: 'blur(70px)',
+          animation: 'meshMove2 26s ease-in-out infinite',
           pointerEvents: 'none',
         }}
       />
       <div
         style={{
           position: 'absolute',
-          top: '30%',
-          right: '15%',
+          top: '25%',
+          right: '5%',
+          width: '45%',
+          height: '55%',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(212,175,120,0.4) 0%, rgba(212,175,120,0) 70%)',
+          filter: 'blur(55px)',
+          animation: 'meshMove3 17s ease-in-out infinite',
+          pointerEvents: 'none',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '10%',
+          left: '15%',
           width: '35%',
           height: '40%',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(176,138,74,0.14) 0%, transparent 70%)',
-          filter: 'blur(35px)',
+          background: 'radial-gradient(circle, rgba(139,58,58,0.18) 0%, rgba(139,58,58,0) 70%)',
+          filter: 'blur(50px)',
           pointerEvents: 'none',
         }}
       />
 
-      <style>{`
-        @keyframes drift1 {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(30px, 40px) scale(1.08); }
-        }
-        @keyframes drift2 {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(-25px, -30px) scale(1.06); }
-        }
-      `}</style>
-
-      {/* Gold ring accents */}
+      {/* Layer 2: Woven fabric texture pattern (diagonal crosshatch) */}
       <div
         style={{
           position: 'absolute',
-          top: '8%',
-          right: '5%',
-          width: '340px',
-          height: '340px',
-          borderRadius: '50%',
-          border: '1.5px solid rgba(176,138,74,0.28)',
-          pointerEvents: 'none',
-        }}
-      />
-      <div
-        style={{
-          position: 'absolute',
-          top: '8%',
-          right: '5%',
-          width: '340px',
-          height: '340px',
-          borderRadius: '50%',
-          border: '1px solid rgba(176,138,74,0.14)',
-          transform: 'scale(1.25)',
-          pointerEvents: 'none',
-        }}
-      />
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '6%',
-          left: '4%',
-          width: '220px',
-          height: '220px',
-          borderRadius: '50%',
-          border: '1.5px solid rgba(31,90,58,0.2)',
+          inset: 0,
+          opacity: 0.5,
+          backgroundImage: `
+        repeating-linear-gradient(45deg, rgba(139,105,60,0.06) 0px, rgba(139,105,60,0.06) 2px, transparent 2px, transparent 14px),
+        repeating-linear-gradient(-45deg, rgba(139,105,60,0.06) 0px, rgba(139,105,60,0.06) 2px, transparent 2px, transparent 14px)
+      `,
+          animation: 'weaveShift 30s linear infinite',
           pointerEvents: 'none',
         }}
       />
 
-      {/* Diagonal gold accent line */}
+      {/* Layer 3: Silk drape shapes at the bottom */}
+      <svg
+        style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '35%', pointerEvents: 'none' }}
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,160 C240,100 480,220 720,170 C960,120 1200,200 1440,150 L1440,320 L0,320 Z"
+          fill="rgba(176,138,74,0.10)"
+        />
+        <path
+          d="M0,200 C300,260 600,140 900,190 C1100,220 1300,170 1440,200 L1440,320 L0,320 Z"
+          fill="rgba(31,90,58,0.08)"
+        />
+      </svg>
+
+      {/* Layer 4: Shimmering gold thread lines */}
       <div
         style={{
           position: 'absolute',
           top: '0',
-          left: '50%',
+          left: '20%',
           width: '1px',
-          height: '140px',
-          background: 'linear-gradient(180deg, rgba(176,138,74,0.4), transparent)',
+          height: '100%',
+          background: 'linear-gradient(180deg, transparent, rgba(176,138,74,0.35) 40%, rgba(176,138,74,0.35) 60%, transparent)',
+          animation: 'shimmer 6s ease-in-out infinite',
+          pointerEvents: 'none',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          top: '0',
+          right: '25%',
+          width: '1px',
+          height: '100%',
+          background: 'linear-gradient(180deg, transparent, rgba(31,90,58,0.3) 40%, rgba(31,90,58,0.3) 60%, transparent)',
+          animation: 'shimmer 8s ease-in-out infinite 2s',
           pointerEvents: 'none',
         }}
       />
 
-      {/* Fine dot grid pattern */}
+      {/* Layer 5: Soft grain for texture */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'radial-gradient(rgba(176,138,74,0.18) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-          maskImage: 'radial-gradient(ellipse 60% 50% at 50% 40%, black 0%, transparent 75%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 60% 50% at 50% 40%, black 0%, transparent 75%)',
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* Soft grain for texture */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          opacity: 0.05,
+          opacity: 0.06,
           pointerEvents: 'none',
           backgroundImage:
             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
           mixBlendMode: 'multiply',
+        }}
+      />
+
+      {/* Vignette to keep focus on center content */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(ellipse at 50% 45%, transparent 35%, rgba(43,32,20,0.10) 100%)',
+          pointerEvents: 'none',
         }}
       />
 
@@ -207,8 +237,9 @@ export default function Hero() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              backgroundColor: 'rgba(31, 90, 58, 0.08)',
-              border: '1px solid rgba(31, 90, 58, 0.2)',
+              backgroundColor: 'rgba(255,255,255,0.5)',
+              backdropFilter: 'blur(6px)',
+              border: '1px solid rgba(31, 90, 58, 0.25)',
               color: 'var(--color-green)',
               padding: '6px 18px',
               borderRadius: '9999px',
@@ -287,7 +318,7 @@ export default function Hero() {
             className="btn-whatsapp"
             style={{ padding: '17px 32px' }}
           >
-            <MessageCircle size={20} fill="currentColor" color="#25D366" />
+            <FaWhatsapp size={20} fill="currentColor" color="#25D366" />
             ENQUIRE ON WHATSAPP
           </button>
 
@@ -302,7 +333,7 @@ export default function Hero() {
           </a>
         </div>
       </div>
-    </section>
+    </section >
   );
 }
 

@@ -34,12 +34,12 @@ import leggings from "../assets/girls/leggings.webp"
 import westernWear from "../assets/girls/western-wear.webp"
 
 /*  || BOYS Collection  || */
-import boysShirt from "../assets/boys/boys-Cotton-Shirt.webp"
+import boysShirt from "../assets/boys/Boys-Cotton-Shirt.webp"
 import boysVestiShirtCombo from "../assets/boys/boys-Vesti-Shirt-Combo.webp"
 
 /*  || NEW BORN Collection  || */
 import bornBabyGiftBoxSet from "../assets/new-born/bornbabygiftbox.webp"
-import feedingBottle from "../assets/new-born/feeding-bottle.webp"
+import feedingBottle from "../assets/new-born/feeding-Bottle.webp"
 
 /*  || HOME & KITCHEN Collection  || */
 import homeKitchen from "../assets/home-kitchen/home-kitchen.webp"

@@ -80,7 +80,7 @@ export default function ProductSection({ selectedCategory, onSelectCategory, onO
       id="products"
       ref={sectionRef}
       style={{
-
+        padding: '100px 0px 100px',
         backgroundColor: 'var(--bg-ivory)',
         position: 'relative',
       }}

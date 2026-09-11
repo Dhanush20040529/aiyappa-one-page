@@ -33,10 +33,10 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: scrolled ? '14px 36px' : '22px 48px',
+          padding: scrolled ? '14px 2rem' : '22px 2rem',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-around',
+          justifyContent: 'space-between',
           gap: "3rem",
           transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
           backgroundColor: scrolled ? 'rgba(246, 240, 231, 0.92)' : 'rgba(26, 20, 16, 0.25)',
@@ -167,13 +167,6 @@ export default function Navbar() {
             style={{ fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#30261F', textDecoration: 'none' }}
           >
             Products
-          </a>
-          <a
-            href="#whatsapp-shopping"
-            onClick={() => setMobileMenuOpen(false)}
-            style={{ fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#30261F', textDecoration: 'none' }}
-          >
-            WhatsApp Shop
           </a>
 
           <button

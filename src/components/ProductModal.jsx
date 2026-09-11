@@ -243,8 +243,7 @@ Thank you.`;
         </button>
 
         {/* ═══════════════════════════════════════════════
-            LEFT — FIXED IMAGE PANEL
-            This section does NOT scroll.
+            IMAGE PANEL
             ═══════════════════════════════════════════════ */}
 
         <div
@@ -292,8 +291,9 @@ Thank you.`;
 
           {/* Color Preview Strip */}
 
-          {product.colors && product.colors.length > 0 && (
+          {/*  {product.colors && product.colors.length > 0 && (
             <div
+              className="color-preview-strip"
               style={{
                 display: 'flex',
                 gap: '8px',
@@ -329,11 +329,11 @@ Thank you.`;
                 />
               ))}
             </div>
-          )}
+          )} */}
         </div>
 
         {/* ═══════════════════════════════════════════════
-            RIGHT — ONLY THIS SECTION SCROLLS
+            RIGHT — DETAILS
             ═══════════════════════════════════════════════ */}
 
         <div
@@ -363,9 +363,11 @@ Thank you.`;
             }}
           >
             {product.collection.toUpperCase()} ·{' '}
-            {(product.label ||
+            {(
+              product.label ||
               product.subcategory ||
-              '').toUpperCase()}
+              ''
+            ).toUpperCase()}
           </span>
 
           {/* Product Name */}
@@ -822,7 +824,7 @@ Thank you.`;
         }
 
         /* ─────────────────────────────────────────────
-           RIGHT PANEL SCROLLBAR
+           DESKTOP DETAILS SCROLLBAR
            ───────────────────────────────────────────── */
 
         .modal-details-panel::-webkit-scrollbar {
@@ -844,50 +846,114 @@ Thank you.`;
 
         /* ─────────────────────────────────────────────
            TABLET / MOBILE
+           SINGLE SCROLL FOR EVERYTHING
            ───────────────────────────────────────────── */
 
         @media (max-width: 768px) {
           .modal-grid {
             grid-template-columns: 1fr !important;
+
             position: fixed !important;
             bottom: 0 !important;
             left: 0 !important;
             right: 0 !important;
             top: auto !important;
+
             width: 100% !important;
             height: 94vh !important;
             max-height: 94vh !important;
+
             border-radius: 24px 24px 0 0 !important;
+
+            /*
+             * IMPORTANT:
+             * The complete modal is the only
+             * scroll container on mobile.
+             */
+            display: block !important;
+
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
           }
 
-          /*
-           * On mobile the image remains at the top
-           * and the details section scrolls.
-           */
+          /* ─────────────────────────────────────────
+             IMAGE SECTION
+             ───────────────────────────────────────── */
 
           .modal-img-panel {
             height: auto !important;
-            max-height: 260px !important;
+            max-height: none !important;
             min-height: 0 !important;
-            border-radius: 24px 24px 0 0 !important;
+
             padding: 20px !important;
-            overflow: hidden !important;
+
+            border-radius: 24px 24px 0 0 !important;
+
+            overflow: visible !important;
+
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
 
-          .modal-img-panel > div {
+          /*
+           * ONLY the product image container
+           * receives the 4/5 aspect ratio.
+           */
+          .modal-img-panel > div:first-child {
             width: 100% !important;
-            max-width: 220px !important;
-            aspect-ratio: 16 / 9 !important;
-            max-height: 180px !important;
+            max-width: 280px !important;
+
+            aspect-ratio: 4 / 5 !important;
+
+            max-height: none !important;
+
+            flex-shrink: 0 !important;
           }
+
+          /*
+           * Color preview must NOT receive
+           * the image aspect ratio.
+           */
+          .modal-img-panel > div:last-child {
+            width: auto !important;
+            max-width: 100% !important;
+
+            height: auto !important;
+            max-height: none !important;
+
+            aspect-ratio: auto !important;
+
+            margin-top: 18px !important;
+
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+
+            flex-shrink: 0 !important;
+          }
+
+          /* ─────────────────────────────────────────
+             DETAILS
+             No independent scrolling on mobile
+             ───────────────────────────────────────── */
 
           .modal-details-panel {
             height: auto !important;
             min-height: 0 !important;
-            overflow-y: auto !important;
+
+            overflow: visible !important;
+
             padding: 28px 22px !important;
+
+            -webkit-overflow-scrolling: auto !important;
           }
 
+          /* Customer inputs stack vertically */
           .customer-input-grid {
             grid-template-columns: 1fr !important;
           }
@@ -905,13 +971,21 @@ Thank you.`;
 
           .modal-img-panel {
             padding: 16px !important;
-            max-height: 220px !important;
+          }
+
+          /* ONLY image gets the smaller max width */
+          .modal-img-panel > div:first-child {
+            max-width: 240px !important;
           }
 
           .modal-details-panel {
             padding: 24px 18px !important;
           }
         }
+
+        /* ─────────────────────────────────────────────
+           MOBILE INPUT FONT
+           ───────────────────────────────────────────── */
 
         @media (max-width: 500px) {
           .modal-grid input,

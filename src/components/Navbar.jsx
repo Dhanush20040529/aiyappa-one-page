@@ -157,14 +157,14 @@ export default function Navbar() {
           <a
             href="#collections"
             onClick={() => setMobileMenuOpen(false)}
-            style={{ fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#30261F', textDecoration: 'none' }}
+            style={{ fontSize: '1.4rem', fontFamily: 'var(--font-heading)', textDecorationLine: "underline", textDecorationThickness: "2px", textUnderlineOffset: "10px", color: '#30261F', textDecoration: 'none' }}
           >
             Collections
           </a>
           <a
             href="#products"
             onClick={() => setMobileMenuOpen(false)}
-            style={{ fontSize: '1.4rem', fontFamily: 'var(--font-heading)', color: '#30261F', textDecoration: 'none' }}
+            style={{ fontSize: '1.4rem', fontFamily: 'var(--font-heading)', textDecorationLine: "underline", textDecorationThickness: "2px", textUnderlineOffset: "10px", color: '#30261F', textDecoration: 'none' }}
           >
             Products
           </a>

@@ -35,7 +35,7 @@ import westernWear from "../assets/girls/western-wear.webp"
 
 /*  || BOYS Collection  || */
 import boysShirt from "../assets/boys/Boys-Cotton-Shirt.webp"
-import boysVestiShirtCombo from "../assets/boys/boys-Vesti-Shirt-Combo.webp"
+import boysVestiShirtCombo from "../assets/boys/Boys-Vesti-Shirt-Combo.webp"
 
 /*  || NEW BORN Collection  || */
 import bornBabyGiftBoxSet from "../assets/new-born/bornbabygiftbox.webp"
